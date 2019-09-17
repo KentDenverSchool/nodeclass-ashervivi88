@@ -51,8 +51,11 @@ public class Node<T> {
 
     //Returns the node's data, no inputs
     public String toString(){
+        if (data == null){
+            return "null";
+        }else{
         return "Node: "+ data.toString();
-    }
+    }}
 
     @Override
     public boolean equals(Object obj) {
@@ -67,13 +70,27 @@ public class Node<T> {
 
     public static void main(String[] args) {
         Node node1 = new Node ();
-        Node node2 = new Node ();
-        Node node3 = new Node (node1, node2, 10);
-        node2.setData(5);
+        System.out.println("Printing Node 1: " + node1);
+
+        Node node2 = new Node (1);
+        System.out.println("Printing Node 2: " + node2);
+
+        Node node3 = new Node (node1, node2, 2);
+        System.out.println("Printing Node 3: " + node3);
+
+        node1.setData(3);
+        System.out.println("Testing getData: " + node1.getData());
+
         node1.setBack(node2);
+        System.out.println("Testing getBack: " + node1.getBack());
+
         node1.setFront(node3);
-        System.out.println(node2.getData());
-        System.out.println(node1.equals(5));
-        System.out.println(node3.toString());
+        System.out.println("Testing getFront: " + node1.getFront());
+
+        System.out.println("Testing .equals, should return false: " + node2.equals(node3));
+        node3.setData(1);
+        System.out.println("Testing .equals, should return true: " + node2.equals(node3));
+        
+        System.out.println("Testing toString: " + node3.toString());
 
     }}
