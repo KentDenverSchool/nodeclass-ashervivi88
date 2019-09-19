@@ -1,9 +1,11 @@
 /*
 Author: Ashley Kim
 Date: 9/17/19
+//FIXME: 9/17???
 Purpose of code: Creates a node that holds generic data and can point
 to other nodes
 */
+//FIXME: Purpose of code could be less vague and more descriptive
 
 public class Node<T> {
    private T data;
@@ -18,6 +20,7 @@ public class Node<T> {
     }
 
     // One-input constructor - takes in only object data
+    //FIXME: Takes in T data, not necessarily object
     public Node (T t){
         this.front = null;
         this.back = null;
@@ -31,6 +34,8 @@ public class Node<T> {
        this.data = t;
    }
 
+   //FIXME: Good style is including a line break after the opening parenthesis
+   
     //Mutator that takes in generic data type and outputs nothing
     public void setData(T t){this.data = t;}
 
@@ -53,10 +58,13 @@ public class Node<T> {
     public String toString(){
         if (data == null){
             return "null";
+        //FIXME: Not good style
         }else{
         return "Node: "+ data.toString();
     }}
 
+   //FIXME: Equals should take in a type T, not an object
+   //FIXME: Overcomplicated code
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Node){
@@ -68,7 +76,9 @@ public class Node<T> {
         //it's data (getData) to this.getData
         //else return false
 
+   //FIXME: Good style to have a separate file for driver
     public static void main(String[] args) {
+       //FIXME: Why include spaces between Node and () but not between setData and (3)
         Node node1 = new Node ();
         System.out.println("Printing Node 1: " + node1);
 
